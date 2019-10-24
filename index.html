@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Monster Slayer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://kit.fontawesome.com/3530f29c86.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    ::-webkit-scrollbar {
+    width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin:80px 0 5px 0;
+    }
+    ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    background: rgb(219,219,219);
+    }
+</style>
+<body>
+    <div class="container" id="app">
+        <div class="match-section">
+            <!-- Slayer -->
+            <div class="slayer-wrapper">
+                <div class="slayer-block">
+                        <img src="./img/swords.svg" alt="">
+                        <p class="name">SLAYER</p>
+                </div>
+                <div class="slayer-health-bar" :style="{width: slayerHP + '%'}">
+                    <span class="health-num l">{{ slayerHP }} %</span>
+                </div>
+            </div>
+            <!-- Monster -->
+            <div class="monster-wrapper">
+                <div class="monster-block">
+                        <img src="./img/monster.svg" alt="">
+                        <p class="name">MONSTER</p>
+                </div>
+                <div class="monster-health-bar" :style="{width: monsterHP + '%'}">
+                    <span class="health-num r">{{ monsterHP }} %</span>
+                </div>
+            </div>
+        </div>
+        <!-- Controller -->
+        <div class="control-section">
+            <div class="control-btn-wrapper">
+                <div class="control-btn attack" @click="loseHeath">Attack</div>
+                <div class="control-btn sp-attack" @click="SPLoseHeath">Special Attack</div>
+                <div class="control-btn heal" @click="gainHeath">Heal</div>
+                <div class="control-btn give-up" @click="showModal = !showModal">Give Up</div>
+            </div>
+        </div>
+        <div id="confirmModal" v-show="showModal">
+            <div class="modal-closer">
+                <div class="modal-position" @click.self="showModal = !showModal">
+                    <div class="modal">
+                        <div class="modal-body">
+                            <div class="modal-txt">Are you sure you wanna give up?</div>
+                            <div class="btn-wrapper">
+                                <button class="y" @click="giveUp">YES</button>
+                                <button class="c" @click.stop="showModal = !showModal">CANCEL</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="annouceModal" v-show="showAnModal">
+            <div class="modal-closer">
+                <div class="modal-position" @click.self="giveUp">
+                    <div class="modal">
+                        <div class="modal-body">
+                            <div class="modal-txt">{{ announce[0] }}</div>
+                            <div class="btn-wrapper">
+                                <button class="c" @click="giveUp">TRY AGAIN</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Record -->
+        <div class="record-section">
+            <ul>
+                <li class="" v-for="condi in condis">
+                    <p v-for="(key, value) in condi" class="">{{value}} {{key}}</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://npmcdn.com/vue@2.6.10/dist/vue.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap');
+* {
+    -webkit-user-select: none;   /* for Chrome */
+}
+html, body {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+.container {
+    width: 100%;
+    max-width: 1366px;
+    margin: 0 auto;
+    padding: 14px;
+}
+.match-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+}
+.slayer-wrapper,
+.monster-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 14px
+}
+.slayer-wrapper {
+    align-items: flex-end;
+}
+.slayer-block, .monster-block{
+    height: 100px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.slayer-block img, .monster-block img {
+    height: 24px;
+    width: 24px
+}
+.slayer-block {
+    background: lightblue;
+}
+.monster-block {
+    background: pink;
+}
+.slayer-health-bar,
+.monster-health-bar {
+    height: 25px;
+    width: 100%;
+    background: #000;
+    margin-top: 10px;
+    position: relative;
+    border-radius: 25px;
+
+    transition: .5s;
+}
+.slayer-health-bar {
+    background: lightgreen;
+}
+.monster-health-bar {
+    background-color: #be1a33
+}
+.health-num {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    left: 14px;
+    top: calc(100%);
+    color: #222;
+
+    font-size: 12px;
+    white-space: nowrap;
+}
+.health-num.l {
+    left: unset;
+    right: 14px;
+}
+.name {
+    font-size: 12px;
+    margin-top: 10px
+}
+.control-section {
+    width: 100%;
+    margin: 20px auto;
+}
+.control-btn-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.control-btn {
+    padding: 8px 15px;
+    border: 1px solid #999;
+    border-radius: 35px;
+    margin: 0 7px;
+
+    cursor: pointer;
+    transition: .3s;
+    font-size: 14px;
+}
+
+.control-btn:hover {
+    background: #f4f4f4;
+}
+
+.record-section {
+    width: 100%;
+    max-height: 500px;
+    overflow-y: scroll;
+    text-align: center;
+    margin-top: 40px
+}
+.record-section ul {
+    display: flex;
+    flex-direction: column-reverse;
+}
+.record-section ul li p{
+    margin: 20px 0;
+}
+
+.modal-closer {
+    background: rgba(0, 0, 0, 0.3);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+.modal-position {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal {
+    height: 100%;
+    width: 100%;
+    background: #f4f4f4;
+    max-width: 400px;
+    max-height: 300px;
+    border-radius: 15px;
+}
+.modal-body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.btn-wrapper {
+    margin-top: 20px;
+}
+button {
+    padding: 8px 15px;
+    background: #f4f4f4;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 0 4px;
+    color: #f4f4f4;
+    font-weight: 700;
+
+    outline: none;
+    transition: .3s;
+}
+button:hover {
+    filter: brightness(1.2)
+}
+button.y {
+    background: rgb(53, 161, 95);
+}
+button.c {
+    background: rgb(161, 53, 53);
+}
